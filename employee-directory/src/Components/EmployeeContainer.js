@@ -2,6 +2,7 @@ import React from 'react'
 import PageHeader from './PageHeader'
 import API from '../utils/EmployeeAPI'
 import ListHeader from './List Header'
+import EmployeeRow from './EmployeeRow'
 
 class EmployeeContainer extends React.Component {
 	state = {
@@ -42,6 +43,7 @@ class EmployeeContainer extends React.Component {
 			/>
 			{/* <ResultList results={this.state.results} /> */}
 			<ListHeader/>
+			<EmployeeRow/>
 		  </div>
 		);
 	  }
