@@ -17,7 +17,6 @@ class EmployeeContainer extends React.Component {
 		RandomEmployeeAPI.search()
 		  .then(res => {
 			  this.setState({ employeeList: res.data.results })
-			  console.log('EMPLOYEE LIST STATE AFTER API CALL', this.state.employeeList);
 		  })
 			  
 		  .catch(err => console.log(err));
@@ -47,7 +46,7 @@ class EmployeeContainer extends React.Component {
 			/>
 			{/* <ResultList results={this.state.results} /> */}
 			<ListHeader/>
-			<EmployeeRow/>
+			{this.state.employeeList.map(employee => <EmployeeRow employeeInfo={this.state.employeeList[employee]}/>)}
 		  </div>
 		);
 	  }
