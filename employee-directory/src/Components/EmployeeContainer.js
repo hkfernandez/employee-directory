@@ -4,15 +4,17 @@ import employeeAPI from '../utils/EmployeeAPI'
 import EmployeeRow from './EmployeeRow'
 
 class EmployeeContainer extends React.Component {
+
 	state = {
 		employeeList:[],
 		queryString: ""
 	}
+
 	componentDidMount() {
 		this.retreiveEmployeeData();
-	  }
+	}
 	
-	  retreiveEmployeeData = () => {
+	retreiveEmployeeData = () => {
 		employeeAPI.search()
 		.then(
 			res => {
@@ -21,35 +23,43 @@ class EmployeeContainer extends React.Component {
 			}
 		)  
 		.catch(err => console.log(err));
-	  };
+	};
 	
-	  handleInputChange = event => {
+	handleInputChange = event => {
 		const name = event.target.name;
 		const value = event.target.value;
-		this.setState({
-		  [name]: value
-		});
-	  };
+		this.setState( { [name]: value } );
+		console.log(this.state.queryString);
+	};
 	
-	  // When the form is submitted, search the Giphy API for `this.state.search`
-	  handleFormSubmit = event => {
+	handleFormSubmit = event => {
 		event.preventDefault();
 		this.searchEmployees(this.state.queryString);
-	  };
+	};
+
 	
-	  render() {
+	render() {
 		return (
-		  <div>
-			<PageHeader
-			  search={this.state.queryString}
-			  handleFormSubmit={this.handleFormSubmit}
-			  handleInputChange={this.handleInputChange}
-			/>
-			{/* <ResultList results={this.state.results} /> */}
-			{this.state.employeeList.map(employee => <EmployeeRow employeeInfo={employee}/>)}
-		  </div>
+			<div>
+				<PageHeader
+					search={this.state.queryString}
+					handleFormSubmit={this.handleFormSubmit}
+					handleInputChange={this.handleInputChange}
+				/>
+				{
+					this.state.employeeList.map(
+						employee => <EmployeeRow employeeInfo={employee} key={employee.email}/>
+					)
+					// .filter(
+					// 	employee => {
+					// 		let regEx = /this.state.queryString/;
+					// 		employee.name.first.search("a")
+					// 	}
+					// )
+				}
+			</div>
 		);
-	  }
+	}
 }
 
  export default EmployeeContainer;
