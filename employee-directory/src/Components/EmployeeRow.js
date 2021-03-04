@@ -1,10 +1,12 @@
 import React from 'react'
 
-function EmployeeRow () {
+// function EmployeeRow ({picture, name, cell, phone, email}) {
+function EmployeeRow ({employeeInfo}) {
 	return (
-		<>
-		<h1>EmployeeRow</h1>
-		</>
+		<section>
+			<img src={employeeInfo.picture.medium} alt="Employee Photo"/>
+			{`${employeeInfo.name.first} ${employeeInfo.name.last} ${employeeInfo.cell} ${employeeInfo.phone} ${employeeInfo.email}`}
+		</section>
 	)
 }
  export default EmployeeRow;

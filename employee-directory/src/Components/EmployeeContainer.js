@@ -15,11 +15,13 @@ class EmployeeContainer extends React.Component {
 	
 	  retreiveEmployeeData = () => {
 		RandomEmployeeAPI.search()
-		  .then(res => {
-			  this.setState({ employeeList: res.data.results })
-		  })
-			  
-		  .catch(err => console.log(err));
+		.then(
+			res => {
+				this.setState({ employeeList: res.data.results })
+				console.log(this.state.employeeList);
+			}
+		)  
+		.catch(err => console.log(err));
 	  };
 	
 	  handleInputChange = event => {
@@ -46,7 +48,7 @@ class EmployeeContainer extends React.Component {
 			/>
 			{/* <ResultList results={this.state.results} /> */}
 			<ListHeader/>
-			{this.state.employeeList.map(employee => <EmployeeRow employeeInfo={this.state.employeeList[employee]}/>)}
+			{this.state.employeeList.map(employee => <EmployeeRow employeeInfo={employee}/>)}
 		  </div>
 		);
 	  }
