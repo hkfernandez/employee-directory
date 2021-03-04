@@ -3,7 +3,7 @@ import React from 'react'
 function ListHeader () {
 	return (
 		<>
-		<h1>ListHeader</h1>
+		<h2>Name Cell Office Email</h2>
 		</>
 	)
 }

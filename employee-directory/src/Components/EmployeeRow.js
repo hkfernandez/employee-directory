@@ -4,7 +4,7 @@ import React from 'react'
 function EmployeeRow ({employeeInfo}) {
 	return (
 		<section>
-			<img src={employeeInfo.picture.medium} alt="Employee Photo"/>
+			<img src={employeeInfo.picture.medium} alt="Employee"/>
 			{`${employeeInfo.name.first} ${employeeInfo.name.last} ${employeeInfo.cell} ${employeeInfo.phone} ${employeeInfo.email}`}
 		</section>
 	)

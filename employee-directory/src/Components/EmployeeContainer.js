@@ -1,7 +1,6 @@
 import React from 'react'
 import PageHeader from './PageHeader'
-import RandomEmployeeAPI from '../utils/EmployeeAPI'
-import ListHeader from './List Header'
+import employeeAPI from '../utils/EmployeeAPI'
 import EmployeeRow from './EmployeeRow'
 
 class EmployeeContainer extends React.Component {
@@ -14,7 +13,7 @@ class EmployeeContainer extends React.Component {
 	  }
 	
 	  retreiveEmployeeData = () => {
-		RandomEmployeeAPI.search()
+		employeeAPI.search()
 		.then(
 			res => {
 				this.setState({ employeeList: res.data.results })
@@ -47,7 +46,6 @@ class EmployeeContainer extends React.Component {
 			  handleInputChange={this.handleInputChange}
 			/>
 			{/* <ResultList results={this.state.results} /> */}
-			<ListHeader/>
 			{this.state.employeeList.map(employee => <EmployeeRow employeeInfo={employee}/>)}
 		  </div>
 		);
