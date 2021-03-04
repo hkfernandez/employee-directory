@@ -1,6 +1,7 @@
 import React from 'react'
 import PageHeader from './PageHeader'
 import API from '../utils/EmployeeAPI'
+import ListHeader from './List Header'
 
 class EmployeeContainer extends React.Component {
 	state = {
@@ -40,6 +41,7 @@ class EmployeeContainer extends React.Component {
 			  handleInputChange={this.handleInputChange}
 			/>
 			{/* <ResultList results={this.state.results} /> */}
+			<ListHeader/>
 		  </div>
 		);
 	  }
