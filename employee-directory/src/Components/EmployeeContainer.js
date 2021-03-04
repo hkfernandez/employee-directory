@@ -39,6 +39,7 @@ class EmployeeContainer extends React.Component {
 
 	
 	render() {
+		// console.log(this.state.employeeList[0]);
 		return (
 			<div>
 				<PageHeader
@@ -46,17 +47,17 @@ class EmployeeContainer extends React.Component {
 					handleFormSubmit={this.handleFormSubmit}
 					handleInputChange={this.handleInputChange}
 				/>
-				{
+				<EmployeeRow employeeInfo={this.state.employeeList}/>
+				{/* {
 					this.state.employeeList.map(
 						employee => <EmployeeRow employeeInfo={employee} key={employee.email}/>
 					)
 					// .filter(
 					// 	employee => {
-					// 		let regEx = /this.state.queryString/;
-					// 		employee.name.first.search("a")
+					// 		return employee.name.first.search(/a/)>0
 					// 	}
 					// )
-				}
+				} */}
 			</div>
 		);
 	}
