@@ -1,6 +1,6 @@
 import React from 'react'
 import PageHeader from './PageHeader'
-import API from '../utils/EmployeeAPI'
+import RandomEmployeeAPI from '../utils/EmployeeAPI'
 import ListHeader from './List Header'
 import EmployeeRow from './EmployeeRow'
 
@@ -10,12 +10,16 @@ class EmployeeContainer extends React.Component {
 		queryString: ""
 	}
 	componentDidMount() {
-		this.searchEmployees("kittens");
+		this.retreiveEmployeeData();
 	  }
 	
-	  searchEmployees = query => {
-		API.search(query)
-		  .then(res => this.setState({ employeeList: res.data.data }))
+	  retreiveEmployeeData = () => {
+		RandomEmployeeAPI.search()
+		  .then(res => {
+			  this.setState({ employeeList: res.data.results })
+			  console.log('EMPLOYEE LIST STATE AFTER API CALL', this.state.employeeList);
+		  })
+			  
 		  .catch(err => console.log(err));
 	  };
 	
