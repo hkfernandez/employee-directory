@@ -88,7 +88,7 @@ class EmployeeContainer extends React.Component {
 		// event.preventDefault();
 		console.log('FILTER EMPLOYEE LIST METHOD CALLED with query string value', this.state.queryString);
 		let copyArr = this.state.employeeList.filter (employee => {
-			let employeeFullName = employee.name.first +" "+employee.name.last
+			let employeeFullName = employee.name.first.toLowerCase() +" "+employee.name.last.toLowerCase()
 			console.log(this.state.queryString)
 			return employeeFullName.includes(query)
 			}

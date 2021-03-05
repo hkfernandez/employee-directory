@@ -2,14 +2,13 @@ import React from 'react'
 
 const styles = {
 	button: {
-		padding: ".5em 1em",
+		padding: ".5em 1.5em",
 		margin: ".5em",
-		// color: "white",
+		color: "dimgrey",
 		fontSize: "1.25em",
-		border: "20px solid cadeblue",
+		border: "none",
 		borderRadius: ".5em",
-		borderColor: "cadetblue",
-		backgroundColor: "white",
+		backgroundColor: "gold",
 		boxSizing: "border-box"
 	}
 }

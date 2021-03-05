@@ -2,19 +2,22 @@ import React from 'react'
 
 const styles = {
 	ul: {
-		width: "100%"
-	},
-	displayFlexCenter: {
-		flexDirection: "row",
+		width: "100%",
+		display: "flex",
+		flexDirection: "column",
+		justifyContent: "center",
 		alignItems: "center",
+		padding: "0px",
+		fontSize: "1.25em",
+		color: "black"
 	},
 	li: {
-		width: "80%",
-		maxWidth: "900px",
+		width:"1100px",
 		padding: ".5em 1.5em",
 		margin: ".5em",
-		background: "#e8eaf6",
+		background: "white",
 		borderRadius: ".5em",
+		border: "2px solid dimgrey",
 		display: "flex",
 		flexDirection: "row",
 		alignItems: "center",
@@ -28,7 +31,7 @@ const styles = {
 		textAlign: "left"
 	},
 	email: {
-	  width: "250px",
+	  width: "350px",
 	  textAlign: "right"
 	}
   };
