@@ -1,15 +1,22 @@
 import React from 'react'
 
 // function EmployeeRow ({picture, name, cell, phone, email}) {
-function EmployeeRow ({employeeInfo}) {
-	console.log('EMPLOYEE INFO', employeeInfo);
+function EmployeeRow ({employeeInfo, searchQuery}) {
+	// console.log('EMPLOYEE INFO', employeeInfo);
 	return (
 		<ul className="list-group">
-		{employeeInfo.map(employee => (
-			<li className="list-group-item" key={employee.email.id}>
-				{`${employee.name.first} ${employee.name.last} ${employee.cell} ${employee.phone} ${employee.email}`}
-			</li>
-		))}
+			{
+				employeeInfo.map(
+					employee => (
+						<li className="list-group-item" key={employee.email.id}>
+							{`${employee.name.first} ${employee.name.last} ${employee.cell} ${employee.phone} ${employee.email}`}
+						</li>
+					)
+				)
+				// .filter (
+				// 	employee => employee.name.search(/a/)
+				// )
+			}
 		</ul>
 
 
