@@ -1,29 +1,57 @@
 import React from 'react'
 
+const styles = {
+	ul: {
+		width: "100%"
+	},
+	displayFlexCenter: {
+		flexDirection: "row",
+		alignItems: "center",
+	},
+	li: {
+		width: "80%",
+		maxWidth: "900px",
+		padding: ".5em 1.5em",
+		margin: ".5em",
+		background: "#e8eaf6",
+		borderRadius: ".5em",
+		display: "flex",
+		flexDirection: "row",
+		alignItems: "center",
+		justifyContent: "space-between"
+	},
+	photo: {
+		borderRadius: ".5em"
+	},
+	name: {
+		width: "150px",
+		textAlign: "left"
+	},
+	email: {
+	  width: "250px",
+	  textAlign: "right"
+	}
+  };
+
 // function EmployeeRow ({picture, name, cell, phone, email}) {
 function EmployeeRow ({employeeInfo}) {
-	// console.log('EMPLOYEE INFO', employeeInfo);
+	console.log('EMPLOYEE INFO', employeeInfo[0]);
 	return (
-		<ul className="list-group">
+		<ul style={styles.ul}>
 			{
 				employeeInfo.map(
 					employee => (
-						<li className="list-group-item" key={employee.email}>
-							{`${employee.name.first} ${employee.name.last} ${employee.cell} ${employee.phone} ${employee.email}`}
+						<li key={employee.email} style={styles.li}>
+							<img src={employee.picture.medium} alt="Employee" style={styles.photo}/>
+							<span style={styles.name}>{`${employee.name.first} ${employee.name.last}`}</span> 
+							<span>c.{employee.cell}</span> 
+							<span>o.{employee.phone}</span>
+							<span style={styles.email}>{`${employee.email}`}</span>
 						</li>
 					)
 				)
-				// .filter (
-				// 	employee => employee.name.search(/a/)
-				// )
 			}
 		</ul>
-
-
-		// <section>
-		// 	<img src={employeeInfo.picture.medium} alt="Employee"/>
-		// 	{`${employeeInfo.name.first} ${employeeInfo.name.last} ${employeeInfo.cell} ${employeeInfo.phone} ${employeeInfo.email}`}
-		// </section>
 	)
 }
  export default EmployeeRow;

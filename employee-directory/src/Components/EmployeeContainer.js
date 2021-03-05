@@ -3,6 +3,15 @@ import PageHeader from './PageHeader'
 import employeeAPI from '../utils/EmployeeAPI'
 import EmployeeRow from './EmployeeRow'
 
+const styles = {
+	flexCenter: {
+		width: "100%",
+		display: "flex",
+		flexDirection: "row",
+		alignContent: "center"
+	}
+}	
+
 class EmployeeContainer extends React.Component {
 
 	state = {
@@ -14,23 +23,6 @@ class EmployeeContainer extends React.Component {
 
 	componentDidMount() {
 		this.retreiveEmployeeData();
-	}
-
-	changeSortOrder = () => {
-		let sortedEmployeeList = this.sortEmployeeListAscending();
-		if (this.state.nameOrder === "ascending") {
-			console.log('CHANGE SORT ORDER METHOD CALLED', this.state.nameOrder);
-			// console.log('ASCENDING LIST', ascendingEmployeeList);
-			this.setState ({
-				nameOrder: "decending",
-				employeeFilteredList: sortedEmployeeList.reverse()
-			})
-		} else {
-			this.setState ({
-				nameOrder: "ascending",
-				employeeFilteredList: sortedEmployeeList
-			})
-		}
 	}
 
 	retreiveEmployeeData = () => {
@@ -65,6 +57,23 @@ class EmployeeContainer extends React.Component {
 		})
 		return ascendingList;
 	}
+
+	changeSortOrder = () => {
+		let sortedEmployeeList = this.sortEmployeeListAscending();
+		if (this.state.nameOrder === "ascending") {
+			console.log('CHANGE SORT ORDER METHOD CALLED', this.state.nameOrder);
+			// console.log('ASCENDING LIST', ascendingEmployeeList);
+			this.setState ({
+				nameOrder: "decending",
+				employeeFilteredList: sortedEmployeeList.reverse()
+			})
+		} else {
+			this.setState ({
+				nameOrder: "ascending",
+				employeeFilteredList: sortedEmployeeList
+			})
+		}
+	}
 	
 	handleInputChange = event => {
 		// const name = event.target.name;
@@ -98,21 +107,14 @@ class EmployeeContainer extends React.Component {
 					handleInputChange={this.handleInputChange}
 					filterEmployeeList={this.filterEmployeeList}
 					changeSortOrder={this.changeSortOrder}
+					style={styles.flexCenter}
 				/>
-				<EmployeeRow 
-					employeeInfo={this.state.employeeFilteredList} 
-					// searchQuery={this.state.searchQuery}
-				/>
-				{/* {
-					this.state.employeeList.map(
-						employee => <EmployeeRow employeeInfo={employee} key={employee.email}/>
-					)
-					// .filter(
-					// 	employee => {
-					// 		return employee.name.first.search(/a/)>0
-					// 	}
-					// )
-				} */}
+				{/* <div style={styles.flexCenter}> */}
+					<EmployeeRow 
+						employeeInfo={this.state.employeeFilteredList} 
+						// searchQuery={this.state.searchQuery}
+					/>
+				{/* </div> */}
 			</div>
 		);
 	}

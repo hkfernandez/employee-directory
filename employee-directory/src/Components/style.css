@@ -1,0 +1,11 @@
+li {
+	background-color: white;
+	border-radius: 5px;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	align-content: space-between;
+	border-color: aliceblue;
+	box-sizing: ;
+
+}
